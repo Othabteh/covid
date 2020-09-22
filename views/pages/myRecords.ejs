@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <%data.forEach(item=>{%>
+        <div>
+            <p>Country : <%=item.country%></p>
+            <p>Date : <%=item.date%></p>
+            <form action="/Details/<%=item.id%>" method="GET">
+                <button>View Details</button>
+
+            </form>
+
+        </div>
+
+        <% })%>
+    </div>
+</body>
+
+</html>

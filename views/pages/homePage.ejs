@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <a href="/allCountries">all Countries</a>
+    </header>
+    <div>
+        <p>TotalConfirmed : <%=data.TotalConfirmed%></p>
+        <p>TotalDeaths : <%=data.TotalDeaths%></p>
+        <p> TotalRecovered : <%=data.TotalRecovered%></p>
+    </div>
+    <div>
+        <form action="/getCountryResult" method="POST">
+            <input type="text" name="search" value="">
+            <input type="date" name="searchDateFrom" value="">
+            <input type="date" name="searchDateTo" value="">
+            <button>SEARCh</button>
+        </form>
+    </div>
+</body>
+
+</html>

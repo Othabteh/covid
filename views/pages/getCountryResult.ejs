@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <%data.forEach(item=>{%>
+        <div>
+            <p>Date : <%=item.Date%></p>
+            <p>Number of confirmed cases : <%=item.Cases%></p>
+        </div>
+
+        <% })%>
+    </div>
+
+</body>
+
+</html>
