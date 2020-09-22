@@ -24,6 +24,8 @@ app.post('/getCountryResult', getCountryResult)
 app.get('/allCountries', Countries);
 app.post('/myRecords', Records)
 app.get('/Details/:id', details)
+app.delete('/deleteCovid/:id', deleteCovid)
+app.put('/updateCovid/:id', updateCovid)
 
 
 
@@ -86,6 +88,29 @@ function details(req, res) {
             res.render('pages/Details', { data: results.rows[0] })
         })
 }
+
+
+function deleteCovid(req, res) {
+    let id = req.params.id;
+    let sql = `DELETE FROM covid WHERE id=$1;`
+    let val = [id];
+    client.query(sql, val)
+        .then(() => {
+            res.redirect('/myRecords')
+        })
+}
+
+function updateCovid(req, res) {
+    let id = req.params.id;
+    let { country, confirmed, deaths, Recovered, date } = req.body
+    let sql = `UPDATE covid SET country=$1,confirmed=$2,deaths=$3,Recovered=$4,date=$5 WHERE id=$6; `
+    let val = [country, confirmed, deaths, Recovered, date, id]
+    client.query(sql, val)
+        .then(() => {
+            res.redirect(`/Details/${id}`)
+        })
+}
+
 
 
 

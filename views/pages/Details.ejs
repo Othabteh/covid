@@ -16,11 +16,27 @@
             <p>Total Deaths cases: <%=data.deaths%></p>
             <p>Total Recovered cases: <%=data.Recovered%></p>
             <p>Date: <%=data.date%></p>
+            <form action="/deleteCovid/<%=data.id%>?_method=delete" method="POST">
+                <button>DELETE</button>
+            </form>
+            <button>UPDATE</button>
+            <div>
+                <form action="/updateCovid/<%=data.id%>?_method=put" method="POST">
+                    <input type="text" name="country" value="<%=data.country%>">
+                    <input type="text" name="confirmed" value="<%=data.confirmed%>">
+                    <input type="text" name="deaths" value=" <%=data.deaths%>">
+                    <input type="text" name="Recovered" value="<%=data.Recovered%>">
+                    <input type="date" name="date" value="<%=data.date%>">
+                    <button>update</button>
+
+                </form>
+            </div>
 
         </div>
 
 
     </div>
 </body>
+
 
 </html>
